@@ -11,7 +11,7 @@ categories:
         //2.使用Collections.addAll()方法：,class java.util.Collections$EmptyList
         //3.使用Collections.unmodifiableList()方法：,class java.util.Collections$UnmodifiableRandomAccessList
         //4.使用Collections.singletonList()方法：,class java.util.Collections$SingletonList
-        //5.使用{{方法：,[1, 2, 3, 4]
+        //5.使用双括号方法：,[1, 2, 3, 4]
         //6.使用Collectors.toList()方法：,[1, 2, 3, 4]
         //7.使用Collectors.toCollection()方法：,[1, 2, 3, 4]
         //8.使用List.of()方法：,class java.util.ImmutableCollections$ListN

@@ -5,8 +5,7 @@ categories:
  - Java
 ---
 
-```java
-		//1.使用Arrays.asList()方法：,class java.util.Arrays$ArrayList
+> 	    //1.使用Arrays.asList()方法：,class java.util.Arrays$ArrayList
         //2.使用Collections.addAll()方法：,class java.util.Collections$EmptyList
         //3.使用Collections.unmodifiableList()方法：,class java.util.Collections$UnmodifiableRandomAccessList
         //4.使用Collections.singletonList()方法：,class java.util.Collections$SingletonList
@@ -15,6 +14,8 @@ categories:
         //7.使用Collectors.toCollection()方法：,[1, 2, 3, 4]
         //8.使用List.of()方法：,class java.util.ImmutableCollections$ListN
 
+
+```java
         try {
             List<String> list = Arrays.asList("1", "2", "3");
             //list = new ArrayList<>(Arrays.asList("1", "2", "3"));

@@ -6,6 +6,7 @@ categories:
 ---
 
 ```java
+
 		//1.使用Arrays.asList()方法：,class java.util.Arrays$ArrayList
         //2.使用Collections.addAll()方法：,class java.util.Collections$EmptyList
         //3.使用Collections.unmodifiableList()方法：,class java.util.Collections$UnmodifiableRandomAccessList
@@ -86,6 +87,7 @@ categories:
             System.out.println("8.使用List.of()方法：" + "," + List.of("1", "2", "3").getClass());
             e.printStackTrace();
         }
+        
 ```
 
 在某些初始化`List`后对其进行添加，修改等操作时会抛出异常，这是因为生成的`List`类型默认不支持请求的操作。

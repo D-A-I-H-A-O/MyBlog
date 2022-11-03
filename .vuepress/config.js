@@ -1,8 +1,7 @@
 module.exports = {
-  "base": '/MyBlog/', // 这是部署到github相关的配置
+  "base": "/MyBlog/", // 这是部署到github相关的配置
   "title": "DAIHAO_小破站",
   "description": "一花一世界，一叶一菩提",
-  "dest": "public",
   "head": [
     [
       "link",

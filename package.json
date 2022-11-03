@@ -4,9 +4,7 @@
   "author": "DAIHAO",
   "scripts": {
     "dev": "vuepress dev . --open --host \"localhost\"",
-    "build": "vuepress build .",
-    "deploy": "bash deploy.sh",
-    "docs:build": "vuepress build docs"
+    "build": "vuepress build ."
   },
   "devDependencies": {
     "vuepress": "1.5.4",

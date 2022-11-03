@@ -1,5 +1,5 @@
 ﻿---
-title: Java初始化List及异常java.lang.UnsupportedOperationException.md
+title: Java初始化List及异常java.lang.UnsupportedOperationException
 date: 2022-11-01
 categories:
  - Java

@@ -1,7 +1,7 @@
 ---
 home: true
-heroText: DAIHAO_小破站
-tagline: 一花一世界，一叶一菩提
+heroText: DAIHAO和脸¹点也不圆o
+tagline: 脸¹点也不圆o是个憨比
 heroImage: /hero.png
 # heroImageStyle: {
 #   maxWidth: '600px',

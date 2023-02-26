@@ -1,7 +1,7 @@
 module.exports = {
   "base": '/MyBlog/', // 这是部署到github相关的配置
-  "title": "DAIHAO_小破站",
-  "description": "一花一世界，一叶一菩提",
+  "title": "DAIHAO和脸¹点也不圆o",
+  "description": "脸¹点也不圆o是个憨比",
   "dest": "public",
   "head": [
     [

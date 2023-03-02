@@ -1,15 +1,19 @@
-echo "1. Start build"
+#!/usr/bin/env sh
+
+# 确保脚本抛出遇到的错误
+set -e
+
+# 生成静态文件
 npm run build
 
-echo "2. Start submitting code to the local repository"
-git add *
- 
-echo "3. Commit the changes to the local repository"
-git commit -m changes
- 
-echo "4. Push the changes to the remote git server"
-git push
+# 进入生成的文件夹
+cd public
 
+git init
+git add -A
+git commit -m 'deploy'
 
+### imporant 注意替换 如果发布到 https://<USERNAME>.github.io/<REPO>
+git push -f https://github.com/D-A-I-H-A-O/MyBlog.git 
 
-
+cd -

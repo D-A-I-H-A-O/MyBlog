@@ -7,7 +7,9 @@ tags:
  - Mybatis
 ---
 
-**mybatis-plus版本**
+**MyBatis-Plus版本**
+
+1、添加`MyBatis-Plus`依赖
 ```xml
 <dependency>
 	<groupId>com.baomidou</groupId>
@@ -16,7 +18,9 @@ tags:
 </dependency>
 ```
 
-**mybatis-plus配置**
+**MyBatis-Plus配置**
+
+2、添加`MyBatis-Plus`配置，利用拦截器获取到表名给替换
 ```java
 @Configuration
 public class MybatisPlusConfig {
@@ -48,7 +52,10 @@ public class MybatisPlusConfig {
     }
 }
 ```
+
 **请求参数传递辅助类**
+
+3、创建请求参数传递辅助类
 
 ```java
 public class RequestDataHelper {
@@ -92,6 +99,7 @@ public class RequestDataHelper {
 ```
 **使用**
 
+4、在程序中使用，注意如果实际表名与实体类与不同，可先在实体类类注明表名`@TableName("TestUser")`
 ```java
 @Test
 public void test1() {

@@ -4,7 +4,7 @@ date: 2022-06-02
 categories:
  - Database
 tags:
- - sql
+ - SQL Server
 ---
 
 # 查看索引碎片

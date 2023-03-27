@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Fastjson之SerializerFeature属性读取JSON写入文件 | DAIHAO和脸¹点也不圆o</title>
+    <meta name="generator" content="VuePress 1.5.4">
+    <link rel="icon" href="/MyBlog/favicon.ico">
+    <meta name="description" content="脸¹点也不圆o是个憨比">
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=no">
+    <link rel="preload" href="/MyBlog/assets/css/0.styles.21b8861f.css" as="style"><link rel="preload" href="/MyBlog/assets/js/app.da910036.js" as="script"><link rel="preload" href="/MyBlog/assets/js/3.3f64e099.js" as="script"><link rel="preload" href="/MyBlog/assets/js/1.1ebc573b.js" as="script"><link rel="preload" href="/MyBlog/assets/js/66.b76572e3.js" as="script"><link rel="prefetch" href="/MyBlog/assets/js/10.98cc7a45.js"><link rel="prefetch" href="/MyBlog/assets/js/11.74d6aa9a.js"><link rel="prefetch" href="/MyBlog/assets/js/12.62817950.js"><link rel="prefetch" href="/MyBlog/assets/js/13.be1bd78a.js"><link rel="prefetch" href="/MyBlog/assets/js/14.ac6d67da.js"><link rel="prefetch" href="/MyBlog/assets/js/15.e42d03dc.js"><link rel="prefetch" href="/MyBlog/assets/js/16.a0717471.js"><link rel="prefetch" href="/MyBlog/assets/js/17.6f2d986c.js"><link rel="prefetch" href="/MyBlog/assets/js/18.f5c3e8c4.js"><link rel="prefetch" href="/MyBlog/assets/js/19.804fd04e.js"><link rel="prefetch" href="/MyBlog/assets/js/20.013c5ad4.js"><link rel="prefetch" href="/MyBlog/assets/js/21.5bfcd1f4.js"><link rel="prefetch" href="/MyBlog/assets/js/22.d86949c4.js"><link rel="prefetch" href="/MyBlog/assets/js/23.c046443e.js"><link rel="prefetch" href="/MyBlog/assets/js/24.e15729d6.js"><link rel="prefetch" href="/MyBlog/assets/js/25.88d06d37.js"><link rel="prefetch" href="/MyBlog/assets/js/26.09df5274.js"><link rel="prefetch" href="/MyBlog/assets/js/27.362b3d0e.js"><link rel="prefetch" href="/MyBlog/assets/js/28.22e73cdd.js"><link rel="prefetch" href="/MyBlog/assets/js/29.7e848c63.js"><link rel="prefetch" href="/MyBlog/assets/js/30.f79f3eba.js"><link rel="prefetch" href="/MyBlog/assets/js/31.d4d11dc7.js"><link rel="prefetch" href="/MyBlog/assets/js/32.89cd2e3f.js"><link rel="prefetch" href="/MyBlog/assets/js/33.f7d66f5c.js"><link rel="prefetch" href="/MyBlog/assets/js/34.da4a0bbe.js"><link rel="prefetch" href="/MyBlog/assets/js/35.ab97d923.js"><link rel="prefetch" href="/MyBlog/assets/js/36.1316a1dc.js"><link rel="prefetch" href="/MyBlog/assets/js/37.0f603791.js"><link rel="prefetch" href="/MyBlog/assets/js/38.4c48662e.js"><link rel="prefetch" href="/MyBlog/assets/js/39.12e049fc.js"><link rel="prefetch" href="/MyBlog/assets/js/4.de6cfc2b.js"><link rel="prefetch" href="/MyBlog/assets/js/40.1d635f2e.js"><link rel="prefetch" href="/MyBlog/assets/js/41.1d3e2734.js"><link rel="prefetch" href="/MyBlog/assets/js/42.59019446.js"><link rel="prefetch" href="/MyBlog/assets/js/43.53915e98.js"><link rel="prefetch" href="/MyBlog/assets/js/44.2c114f8f.js"><link rel="prefetch" href="/MyBlog/assets/js/45.86e6090e.js"><link rel="prefetch" href="/MyBlog/assets/js/46.87f3303f.js"><link rel="prefetch" href="/MyBlog/assets/js/47.64bb54a3.js"><link rel="prefetch" href="/MyBlog/assets/js/48.e606e092.js"><link rel="prefetch" href="/MyBlog/assets/js/49.92fcfd74.js"><link rel="prefetch" href="/MyBlog/assets/js/5.799a9dc2.js"><link rel="prefetch" href="/MyBlog/assets/js/50.5d398087.js"><link rel="prefetch" href="/MyBlog/assets/js/51.15b184e8.js"><link rel="prefetch" href="/MyBlog/assets/js/52.039b2ad5.js"><link rel="prefetch" href="/MyBlog/assets/js/53.ec01234f.js"><link rel="prefetch" href="/MyBlog/assets/js/54.73b0d5fe.js"><link rel="prefetch" href="/MyBlog/assets/js/55.856449ab.js"><link rel="prefetch" href="/MyBlog/assets/js/56.20b7ffb3.js"><link rel="prefetch" href="/MyBlog/assets/js/57.6dfd97e8.js"><link rel="prefetch" href="/MyBlog/assets/js/58.d886d642.js"><link rel="prefetch" href="/MyBlog/assets/js/59.6f0a2ce4.js"><link rel="prefetch" href="/MyBlog/assets/js/6.f6315b2a.js"><link rel="prefetch" href="/MyBlog/assets/js/60.0ef84e00.js"><link rel="prefetch" href="/MyBlog/assets/js/61.b2494b1b.js"><link rel="prefetch" href="/MyBlog/assets/js/62.5e6e2d46.js"><link rel="prefetch" href="/MyBlog/assets/js/63.0e9ae860.js"><link rel="prefetch" href="/MyBlog/assets/js/64.63af94a7.js"><link rel="prefetch" href="/MyBlog/assets/js/65.8e9911d4.js"><link rel="prefetch" href="/MyBlog/assets/js/67.addbec70.js"><link rel="prefetch" href="/MyBlog/assets/js/68.cb66d6ba.js"><link rel="prefetch" href="/MyBlog/assets/js/69.746236a2.js"><link rel="prefetch" href="/MyBlog/assets/js/7.8684bd4a.js"><link rel="prefetch" href="/MyBlog/assets/js/70.e2c65dc4.js"><link rel="prefetch" href="/MyBlog/assets/js/71.3959fecc.js"><link rel="prefetch" href="/MyBlog/assets/js/72.f8c8ef5c.js"><link rel="prefetch" href="/MyBlog/assets/js/73.97d608af.js"><link rel="prefetch" href="/MyBlog/assets/js/74.c3b41475.js"><link rel="prefetch" href="/MyBlog/assets/js/75.69bdc581.js"><link rel="prefetch" href="/MyBlog/assets/js/76.f41e3f94.js"><link rel="prefetch" href="/MyBlog/assets/js/77.3c58cc21.js"><link rel="prefetch" href="/MyBlog/assets/js/78.9da044ba.js"><link rel="prefetch" href="/MyBlog/assets/js/79.80969e7e.js"><link rel="prefetch" href="/MyBlog/assets/js/8.21a17ed4.js"><link rel="prefetch" href="/MyBlog/assets/js/80.6e01d0e6.js"><link rel="prefetch" href="/MyBlog/assets/js/81.84c01959.js"><link rel="prefetch" href="/MyBlog/assets/js/82.70eb49ab.js"><link rel="prefetch" href="/MyBlog/assets/js/83.03a1d8c9.js"><link rel="prefetch" href="/MyBlog/assets/js/84.40355858.js"><link rel="prefetch" href="/MyBlog/assets/js/85.75d4da67.js"><link rel="prefetch" href="/MyBlog/assets/js/86.e5c0ba70.js"><link rel="prefetch" href="/MyBlog/assets/js/9.b64f171a.js">
+    <link rel="stylesheet" href="/MyBlog/assets/css/0.styles.21b8861f.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar" data-v-2d5f533b><div data-v-2d5f533b><div id="loader-wrapper" class="loading-wrapper" data-v-d48f4d20 data-v-2d5f533b data-v-2d5f533b><div class="loader-main" data-v-d48f4d20><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div><div data-v-d48f4d20></div></div> <!----> <!----></div> <div class="password-shadow password-wrapper-out" style="display:none;" data-v-64685f0e data-v-2d5f533b data-v-2d5f533b><h3 class="title" style="display:none;" data-v-64685f0e data-v-64685f0e>DAIHAO和脸¹点也不圆o</h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-64685f0e data-v-64685f0e><input type="password" value="" data-v-64685f0e> <span data-v-64685f0e>Konck! Knock!</span> <button data-v-64685f0e>OK</button></label> <div class="footer" style="display:none;" data-v-64685f0e data-v-64685f0e><span data-v-64685f0e><i class="iconfont reco-theme" data-v-64685f0e></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-64685f0e>vuePress-theme-reco</a></span> <span data-v-64685f0e><i class="iconfont reco-copyright" data-v-64685f0e></i> <a data-v-64685f0e><span data-v-64685f0e>DAIHAO</span>
+            
+          <!---->
+          2023
+        </a></span></div></div> <div class="hide" data-v-2d5f533b><header class="navbar" data-v-2d5f533b><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/MyBlog/" class="home-link router-link-active"><img src="/MyBlog/logo.png" alt="DAIHAO和脸¹点也不圆o" class="logo"> <span class="site-name">DAIHAO和脸¹点也不圆o</span></a> <div class="links"><div class="color-picker"><a class="color-button"><i class="iconfont reco-color"></i></a> <div class="color-picker-menu" style="display:none;"><div class="mode-options"><h4 class="title">Choose mode</h4> <ul class="color-mode-options"><li class="dark">dark</li><li class="auto active">auto</li><li class="light">light</li></ul></div></div></div> <div class="search-box"><i class="iconfont reco-search"></i> <input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <nav class="nav-links can-hide"><div class="nav-item"><a href="/MyBlog/" class="nav-link"><i class="iconfont reco-home"></i>
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      Category
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/MyBlog/categories/Database/" class="nav-link"><i class="iconfont undefined"></i>
+  Database
+</a></li><li class="dropdown-item"><!----> <a href="/MyBlog/categories/Java/" class="nav-link"><i class="iconfont undefined"></i>
+  Java
+</a></li><li class="dropdown-item"><!----> <a href="/MyBlog/categories/Spring/" class="nav-link"><i class="iconfont undefined"></i>
+  Spring
+</a></li><li class="dropdown-item"><!----> <a href="/MyBlog/categories/SpringBoot/" class="nav-link"><i class="iconfont undefined"></i>
+  SpringBoot
+</a></li></ul></div></div><div class="nav-item"><a href="/MyBlog/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tag
+</a></div><div class="nav-item"><a href="/MyBlog/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  TimeLine
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-message"></i>
+      Docs
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/MyBlog/docs/DAIHAO/" class="nav-link"><i class="iconfont undefined"></i>
+  DAIHAO
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-message"></i>
+      Contact
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/MyBlog/blogs/Java/2023/.html" class="nav-link"><i class="iconfont reco-github"></i>
+  GitHub
+</a></li></ul></div></div> <!----></nav></div></header> <div class="sidebar-mask" data-v-2d5f533b></div> <aside class="sidebar" data-v-2d5f533b><div class="personal-info-wrapper" data-v-ca798c94 data-v-2d5f533b><img src="/MyBlog/avatar.png" alt="author-avatar" class="personal-img" data-v-ca798c94> <h3 class="name" data-v-ca798c94>
+    DAIHAO
+  </h3> <div class="num" data-v-ca798c94><div data-v-ca798c94><h3 data-v-ca798c94>74</h3> <h6 data-v-ca798c94>Article</h6></div> <div data-v-ca798c94><h3 data-v-ca798c94>40</h3> <h6 data-v-ca798c94>Tag</h6></div></div> <hr data-v-ca798c94></div> <nav class="nav-links"><div class="nav-item"><a href="/MyBlog/" class="nav-link"><i class="iconfont reco-home"></i>
+  Home
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-category"></i>
+      Category
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/MyBlog/categories/Database/" class="nav-link"><i class="iconfont undefined"></i>
+  Database
+</a></li><li class="dropdown-item"><!----> <a href="/MyBlog/categories/Java/" class="nav-link"><i class="iconfont undefined"></i>
+  Java
+</a></li><li class="dropdown-item"><!----> <a href="/MyBlog/categories/Spring/" class="nav-link"><i class="iconfont undefined"></i>
+  Spring
+</a></li><li class="dropdown-item"><!----> <a href="/MyBlog/categories/SpringBoot/" class="nav-link"><i class="iconfont undefined"></i>
+  SpringBoot
+</a></li></ul></div></div><div class="nav-item"><a href="/MyBlog/tag/" class="nav-link"><i class="iconfont reco-tag"></i>
+  Tag
+</a></div><div class="nav-item"><a href="/MyBlog/timeline/" class="nav-link"><i class="iconfont reco-date"></i>
+  TimeLine
+</a></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-message"></i>
+      Docs
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/MyBlog/docs/DAIHAO/" class="nav-link"><i class="iconfont undefined"></i>
+  DAIHAO
+</a></li></ul></div></div><div class="nav-item"><div class="dropdown-wrapper"><a class="dropdown-title"><span class="title"><i class="iconfont reco-message"></i>
+      Contact
+    </span> <span class="arrow right"></span></a> <ul class="nav-dropdown" style="display:none;"><li class="dropdown-item"><!----> <a href="/MyBlog/blogs/Java/2023/.html" class="nav-link"><i class="iconfont reco-github"></i>
+  GitHub
+</a></li></ul></div></div> <!----></nav> <!----> </aside> <div class="password-shadow password-wrapper-in" style="display:none;" data-v-64685f0e data-v-2d5f533b><h3 class="title" style="display:none;" data-v-64685f0e data-v-64685f0e>Fastjson之SerializerFeature属性读取JSON写入文件</h3> <!----> <label id="box" class="inputBox" style="display:none;" data-v-64685f0e data-v-64685f0e><input type="password" value="" data-v-64685f0e> <span data-v-64685f0e>Konck! Knock!</span> <button data-v-64685f0e>OK</button></label> <div class="footer" style="display:none;" data-v-64685f0e data-v-64685f0e><span data-v-64685f0e><i class="iconfont reco-theme" data-v-64685f0e></i> <a target="blank" href="https://vuepress-theme-reco.recoluan.com" data-v-64685f0e>vuePress-theme-reco</a></span> <span data-v-64685f0e><i class="iconfont reco-copyright" data-v-64685f0e></i> <a data-v-64685f0e><span data-v-64685f0e>DAIHAO</span>
+            
+          <!---->
+          2023
+        </a></span></div></div> <div data-v-2d5f533b><main class="page" style="padding-right:0;"><div class="page-title" style="display:none;"><h1 class="title">Fastjson之SerializerFeature属性读取JSON写入文件</h1> <div data-v-3b7f5bdf><i class="iconfont reco-account" data-v-3b7f5bdf><span data-v-3b7f5bdf>DAIHAO</span></i> <i class="iconfont reco-date" data-v-3b7f5bdf><span data-v-3b7f5bdf>2023-02-26</span></i> <i class="iconfont reco-eye" data-v-3b7f5bdf><span id="/MyBlog/blogs/Java/2023/Fastjson%E4%B9%8BSerializerFeature%E5%B1%9E%E6%80%A7%E8%AF%BB%E5%8F%96JSON%E5%86%99%E5%85%A5%E6%96%87%E4%BB%B6.html" data-flag-title="Your Article Title" class="leancloud-visitors" data-v-3b7f5bdf><a class="leancloud-visitors-count" style="font-size:.9rem;font-weight:normal;color:#999;"></a></span></i> <i class="iconfont reco-tag tags" data-v-3b7f5bdf><span class="tag-item" data-v-3b7f5bdf>Fastjson</span></i></div></div> <div class="theme-reco-content content__default" style="display:none;"><p><strong>安装</strong></p> <div class="language- line-numbers-mode"><pre class="language-text"><code>&lt;dependency&gt;
+    &lt;groupId&gt;com.alibaba&lt;/groupId&gt;
+    &lt;artifactId&gt;fastjson&lt;/artifactId&gt;
+    &lt;version&gt;2.0.23&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br></div></div><p>SerializerFeature属性</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token keyword">public</span> <span class="token keyword">enum</span> <span class="token class-name">SerializerFeature</span> <span class="token punctuation">{</span>
+    <span class="token comment">/**
+     * 输出key时是否使用双引号,默认为true
+     */</span>
+    <span class="token class-name">QuoteFieldNames</span><span class="token punctuation">,</span>
+    <span class="token comment">/**
+     * 使用单引号而不是双引号,默认为false
+     */</span>
+    <span class="token class-name">UseSingleQuotes</span><span class="token punctuation">,</span>
+    <span class="token comment">/**
+     * 是否输出值为null的字段,默认为false
+     */</span>
+    <span class="token class-name">WriteMapNullValue</span><span class="token punctuation">,</span>
+    <span class="token comment">/**
+     * 用枚举toString()值输出
+     */</span>
+    <span class="token class-name">WriteEnumUsingToString</span><span class="token punctuation">,</span>
+    <span class="token comment">/**
+     * 用枚举name()输出
+     */</span>
+    <span class="token class-name">WriteEnumUsingName</span><span class="token punctuation">,</span>
+    <span class="token comment">/**
+     * Date使用ISO8601格式输出，默认为false
+     */</span>
+    <span class="token class-name">UseISO8601DateFormat</span><span class="token punctuation">,</span>
+    <span class="token comment">/**
+     * List字段如果为null,输出为[],而非null
+     */</span>
+    <span class="token class-name">WriteNullListAsEmpty</span><span class="token punctuation">,</span>
+    <span class="token comment">/**
+     * 字符类型字段如果为null,输出为”“,而非null
+     */</span>
+    <span class="token class-name">WriteNullStringAsEmpty</span><span class="token punctuation">,</span>
+    <span class="token comment">/**
+     * 数值字段如果为null,输出为0,而非null
+     */</span>
+    <span class="token class-name">WriteNullNumberAsZero</span><span class="token punctuation">,</span>
+    <span class="token comment">/**
+     * Boolean字段如果为null,输出为false,而非null
+     */</span>
+    <span class="token class-name">WriteNullBooleanAsFalse</span><span class="token punctuation">,</span>
+    <span class="token comment">/**
+     * 如果是true，类中的Get方法对应的Field是transient，序列化时将会被忽略。默认为true
+     */</span>
+    <span class="token class-name">SkipTransientField</span><span class="token punctuation">,</span>
+    <span class="token comment">/**
+     * 按字段名称排序后输出。默认为false
+     */</span>
+    <span class="token class-name">SortField</span><span class="token punctuation">,</span>
+    <span class="token comment">/**
+     * 把\t做转义输出，默认为false
+     */</span>
+    <span class="token annotation punctuation">@Deprecated</span>
+    <span class="token class-name">WriteTabAsSpecial</span><span class="token punctuation">,</span>
+    <span class="token comment">/**
+     * 结果是否格式化,默认为false
+     */</span>
+    <span class="token class-name">PrettyFormat</span><span class="token punctuation">,</span>
+    <span class="token comment">/**
+     * 序列化时写入类型信息，默认为false。反序列化是需用到
+     */</span>
+    <span class="token class-name">WriteClassName</span><span class="token punctuation">,</span>
+
+    <span class="token comment">/**
+     * 消除对同一对象循环引用的问题，默认为false
+     */</span>
+    <span class="token class-name">DisableCircularReferenceDetect</span><span class="token punctuation">,</span> <span class="token comment">// 32768</span>
+
+    <span class="token comment">/**
+     * 对斜杠’/’进行转义
+     */</span>
+    <span class="token class-name">WriteSlashAsSpecial</span><span class="token punctuation">,</span>
+
+    <span class="token comment">/**
+     * 将中文都会序列化为\uXXXX格式，字节数会多一些，但是能兼容IE 6，默认为false
+     */</span>
+    <span class="token class-name">BrowserCompatible</span><span class="token punctuation">,</span>
+
+    <span class="token comment">/**
+     * 全局修改日期格式,默认为false。JSON.DEFFAULT_DATE_FORMAT = “yyyy-MM-dd”;JSON.toJSONString(obj, SerializerFeature.WriteDateUseDateFormat);
+     */</span>
+    <span class="token class-name">WriteDateUseDateFormat</span><span class="token punctuation">,</span>
+
+    <span class="token comment">/**
+     * @since 1.1.15
+     */</span>
+    <span class="token class-name">NotWriteRootClassName</span><span class="token punctuation">,</span>
+
+    <span class="token comment">/**
+     * 一个对象的字符串属性中如果有特殊字符如双引号，将会在转成json时带有反斜杠转移符。如果不需要转义，可以使用这个属性。默认为false
+     * @deprecated
+     */</span>
+    <span class="token class-name">DisableCheckSpecialChar</span><span class="token punctuation">,</span>
+
+    <span class="token comment">/**
+     * 	将对象转为array输出
+     */</span>
+    <span class="token class-name">BeanToArray</span><span class="token punctuation">,</span>
+
+    <span class="token comment">/**
+     * @since 1.1.37
+     */</span>
+    <span class="token class-name">WriteNonStringKeyAsString</span><span class="token punctuation">,</span>
+    
+    <span class="token comment">/**
+     * @since 1.1.42
+     */</span>
+    <span class="token class-name">NotWriteDefaultValue</span><span class="token punctuation">,</span>
+    
+    <span class="token comment">/**
+     * @since 1.2.6
+     */</span>
+    <span class="token class-name">BrowserSecure</span><span class="token punctuation">,</span>
+    
+    <span class="token comment">/**
+     * @since 1.2.7
+     */</span>
+    <span class="token class-name">IgnoreNonFieldGetter</span><span class="token punctuation">,</span>
+    
+    <span class="token comment">/**
+     * @since 1.2.9
+     */</span>
+    <span class="token class-name">WriteNonStringValueAsString</span><span class="token punctuation">,</span>
+    
+    <span class="token comment">/**
+     * @since 1.2.11
+     */</span>
+    <span class="token class-name">IgnoreErrorGetter</span><span class="token punctuation">,</span>
+
+    <span class="token comment">/**
+     * @since 1.2.16
+     */</span>
+    <span class="token class-name">WriteBigDecimalAsPlain</span><span class="token punctuation">,</span>
+
+    <span class="token comment">/**
+     * @since 1.2.27
+     */</span>
+    <span class="token class-name">MapSortField</span><span class="token punctuation">;</span>
+
+    <span class="token class-name">SerializerFeature</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">{</span>
+        mask <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token number">1</span> <span class="token operator">&lt;&lt;</span> <span class="token function">ordinal</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">final</span> <span class="token keyword">int</span> mask<span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">final</span> <span class="token keyword">int</span> <span class="token function">getMask</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> mask<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">boolean</span> <span class="token function">isEnabled</span><span class="token punctuation">(</span><span class="token keyword">int</span> features<span class="token punctuation">,</span> <span class="token class-name">SerializerFeature</span> feature<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">return</span> <span class="token punctuation">(</span>features <span class="token operator">&amp;</span> feature<span class="token punctuation">.</span>mask<span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">boolean</span> <span class="token function">isEnabled</span><span class="token punctuation">(</span><span class="token keyword">int</span> features<span class="token punctuation">,</span> <span class="token keyword">int</span> featuresB<span class="token punctuation">,</span> <span class="token class-name">SerializerFeature</span> feature<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">int</span> mask <span class="token operator">=</span> feature<span class="token punctuation">.</span>mask<span class="token punctuation">;</span>
+        
+        <span class="token keyword">return</span> <span class="token punctuation">(</span>features <span class="token operator">&amp;</span> mask<span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token number">0</span> <span class="token operator">||</span> <span class="token punctuation">(</span>featuresB <span class="token operator">&amp;</span> mask<span class="token punctuation">)</span> <span class="token operator">!=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">int</span> <span class="token function">config</span><span class="token punctuation">(</span><span class="token keyword">int</span> features<span class="token punctuation">,</span> <span class="token class-name">SerializerFeature</span> feature<span class="token punctuation">,</span> <span class="token keyword">boolean</span> state<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>state<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            features <span class="token operator">|=</span> feature<span class="token punctuation">.</span>mask<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">else</span> <span class="token punctuation">{</span>
+            features <span class="token operator">&amp;=</span> <span class="token operator">~</span>feature<span class="token punctuation">.</span>mask<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+
+        <span class="token keyword">return</span> features<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">int</span> <span class="token function">of</span><span class="token punctuation">(</span><span class="token class-name">SerializerFeature</span><span class="token punctuation">[</span><span class="token punctuation">]</span> features<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+        <span class="token keyword">if</span> <span class="token punctuation">(</span>features <span class="token operator">==</span> <span class="token keyword">null</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            <span class="token keyword">return</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        
+        <span class="token keyword">int</span> value <span class="token operator">=</span> <span class="token number">0</span><span class="token punctuation">;</span>
+        
+        <span class="token keyword">for</span> <span class="token punctuation">(</span><span class="token class-name">SerializerFeature</span> feature<span class="token operator">:</span> features<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            value <span class="token operator">|=</span> feature<span class="token punctuation">.</span>mask<span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+        
+        <span class="token keyword">return</span> value<span class="token punctuation">;</span>
+    <span class="token punctuation">}</span>
+    
+    <span class="token keyword">public</span> <span class="token keyword">final</span> <span class="token keyword">static</span> <span class="token class-name">SerializerFeature</span><span class="token punctuation">[</span><span class="token punctuation">]</span> EMPTY <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">SerializerFeature</span><span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">;</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">final</span> <span class="token keyword">int</span> WRITE_MAP_NULL_FEATURES
+            <span class="token operator">=</span> <span class="token class-name">WriteMapNullValue</span><span class="token punctuation">.</span><span class="token function">getMask</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token operator">|</span> <span class="token class-name">WriteNullBooleanAsFalse</span><span class="token punctuation">.</span><span class="token function">getMask</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token operator">|</span> <span class="token class-name">WriteNullListAsEmpty</span><span class="token punctuation">.</span><span class="token function">getMask</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token operator">|</span> <span class="token class-name">WriteNullNumberAsZero</span><span class="token punctuation">.</span><span class="token function">getMask</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token operator">|</span> <span class="token class-name">WriteNullStringAsEmpty</span><span class="token punctuation">.</span><span class="token function">getMask</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+            <span class="token punctuation">;</span>
+<span class="token punctuation">}</span>
+
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br><span class="line-number">88</span><br><span class="line-number">89</span><br><span class="line-number">90</span><br><span class="line-number">91</span><br><span class="line-number">92</span><br><span class="line-number">93</span><br><span class="line-number">94</span><br><span class="line-number">95</span><br><span class="line-number">96</span><br><span class="line-number">97</span><br><span class="line-number">98</span><br><span class="line-number">99</span><br><span class="line-number">100</span><br><span class="line-number">101</span><br><span class="line-number">102</span><br><span class="line-number">103</span><br><span class="line-number">104</span><br><span class="line-number">105</span><br><span class="line-number">106</span><br><span class="line-number">107</span><br><span class="line-number">108</span><br><span class="line-number">109</span><br><span class="line-number">110</span><br><span class="line-number">111</span><br><span class="line-number">112</span><br><span class="line-number">113</span><br><span class="line-number">114</span><br><span class="line-number">115</span><br><span class="line-number">116</span><br><span class="line-number">117</span><br><span class="line-number">118</span><br><span class="line-number">119</span><br><span class="line-number">120</span><br><span class="line-number">121</span><br><span class="line-number">122</span><br><span class="line-number">123</span><br><span class="line-number">124</span><br><span class="line-number">125</span><br><span class="line-number">126</span><br><span class="line-number">127</span><br><span class="line-number">128</span><br><span class="line-number">129</span><br><span class="line-number">130</span><br><span class="line-number">131</span><br><span class="line-number">132</span><br><span class="line-number">133</span><br><span class="line-number">134</span><br><span class="line-number">135</span><br><span class="line-number">136</span><br><span class="line-number">137</span><br><span class="line-number">138</span><br><span class="line-number">139</span><br><span class="line-number">140</span><br><span class="line-number">141</span><br><span class="line-number">142</span><br><span class="line-number">143</span><br><span class="line-number">144</span><br><span class="line-number">145</span><br><span class="line-number">146</span><br><span class="line-number">147</span><br><span class="line-number">148</span><br><span class="line-number">149</span><br><span class="line-number">150</span><br><span class="line-number">151</span><br><span class="line-number">152</span><br><span class="line-number">153</span><br><span class="line-number">154</span><br><span class="line-number">155</span><br><span class="line-number">156</span><br><span class="line-number">157</span><br><span class="line-number">158</span><br><span class="line-number">159</span><br><span class="line-number">160</span><br><span class="line-number">161</span><br><span class="line-number">162</span><br><span class="line-number">163</span><br><span class="line-number">164</span><br><span class="line-number">165</span><br><span class="line-number">166</span><br><span class="line-number">167</span><br><span class="line-number">168</span><br><span class="line-number">169</span><br><span class="line-number">170</span><br><span class="line-number">171</span><br><span class="line-number">172</span><br><span class="line-number">173</span><br><span class="line-number">174</span><br><span class="line-number">175</span><br><span class="line-number">176</span><br><span class="line-number">177</span><br><span class="line-number">178</span><br><span class="line-number">179</span><br><span class="line-number">180</span><br><span class="line-number">181</span><br><span class="line-number">182</span><br><span class="line-number">183</span><br><span class="line-number">184</span><br><span class="line-number">185</span><br><span class="line-number">186</span><br><span class="line-number">187</span><br><span class="line-number">188</span><br><span class="line-number">189</span><br><span class="line-number">190</span><br><span class="line-number">191</span><br><span class="line-number">192</span><br><span class="line-number">193</span><br><span class="line-number">194</span><br></div></div><p>改变SerializerFeature属性读取JSON写入文件</p> <div class="language-java line-numbers-mode"><pre class="language-java"><code><span class="token keyword">public</span> <span class="token keyword">class</span> <span class="token class-name">JsonUtils</span> <span class="token punctuation">{</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">boolean</span> <span class="token function">createJsonFile</span><span class="token punctuation">(</span><span class="token class-name">Object</span> jsonData<span class="token punctuation">,</span> <span class="token class-name">String</span> filePath<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+        <span class="token comment">//SerializerFeature.PrettyFormat:格式化输出</span>
+        <span class="token comment">//SerializerFeature.WriteMapNullValue:是否输出值为null的字段,默认为false</span>
+
+        <span class="token comment">//  JSON.DEFFAULT_DATE_FORMAT = &quot;yyyy-MM-dd&quot;;</span>
+
+        <span class="token comment">/**
+         * SerializerFeature.PrettyFormat:结果是否格式化,默认为false
+         * SerializerFeature.WriteMapNullValue:显示值为null的字段
+         * SerializerFeature.WriteNullStringAsEmpty:将为null的字段值显示为&quot;&quot;
+         * SerializerFeature.DisableCircularReferenceDetect:消除循环引用
+         * SerializerFeature.WriteDateUseDateFormat,JSON.DEFFAULT_DATE_FORMAT:日期格式
+         */</span>
+
+        <span class="token comment">/**
+         * SortField:按字段名称排序后输出。默认为false
+         * 这里使用的是fastjson：为了更好使用sort field martch优化算法提升parser的性能，fastjson序列化的时候，
+         * 缺省把SerializerFeature.SortField特性打开了。
+         * 反序列化的时候也缺省把SortFeidFastMatch的选项打开了。
+         * 这样，如果你用fastjson序列化的文本，输出的结果是按照fieldName排序输出的，parser时也能利用这个顺序进行优化读取。
+         * 这种情况下，parser能够获得非常好的性能。
+         */</span>
+
+        JSON<span class="token punctuation">.</span>DEFFAULT_DATE_FORMAT <span class="token operator">=</span> <span class="token string">&quot;yyyy-MM-dd HH:mm:ss&quot;</span><span class="token punctuation">;</span>
+
+        <span class="token class-name">String</span> content <span class="token operator">=</span> JSON<span class="token punctuation">.</span><span class="token function">toJSONString</span><span class="token punctuation">(</span>jsonData<span class="token punctuation">,</span>
+                <span class="token class-name">SerializerFeature</span><span class="token punctuation">.</span><span class="token class-name">PrettyFormat</span><span class="token punctuation">,</span>
+                <span class="token class-name">SerializerFeature</span><span class="token punctuation">.</span><span class="token class-name">WriteMapNullValue</span><span class="token punctuation">,</span>
+                <span class="token class-name">SerializerFeature</span><span class="token punctuation">.</span><span class="token class-name">DisableCircularReferenceDetect</span><span class="token punctuation">,</span>
+                <span class="token class-name">SerializerFeature</span><span class="token punctuation">.</span><span class="token class-name">WriteNullListAsEmpty</span><span class="token punctuation">,</span>
+                <span class="token class-name">SerializerFeature</span><span class="token punctuation">.</span><span class="token class-name">WriteNullStringAsEmpty</span><span class="token punctuation">,</span>
+                <span class="token class-name">SerializerFeature</span><span class="token punctuation">.</span><span class="token class-name">WriteNullNumberAsZero</span><span class="token punctuation">,</span>
+                <span class="token class-name">SerializerFeature</span><span class="token punctuation">.</span><span class="token class-name">WriteNullBooleanAsFalse</span><span class="token punctuation">,</span>
+                <span class="token class-name">SerializerFeature</span><span class="token punctuation">.</span><span class="token class-name">WriteDateUseDateFormat</span><span class="token punctuation">,</span>
+                <span class="token class-name">SerializerFeature</span><span class="token punctuation">.</span><span class="token class-name">SortField</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token keyword">try</span> <span class="token punctuation">{</span>
+            <span class="token class-name">File</span> file <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">File</span><span class="token punctuation">(</span>filePath<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token comment">// 创建上级目录</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span><span class="token operator">!</span>file<span class="token punctuation">.</span><span class="token function">getParentFile</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">exists</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                file<span class="token punctuation">.</span><span class="token function">getParentFile</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">mkdirs</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token comment">// 如果文件存在，则删除文件</span>
+            <span class="token keyword">if</span> <span class="token punctuation">(</span>file<span class="token punctuation">.</span><span class="token function">exists</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+                file<span class="token punctuation">.</span><span class="token function">delete</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token punctuation">}</span>
+            <span class="token comment">// 创建文件</span>
+            file<span class="token punctuation">.</span><span class="token function">createNewFile</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token comment">// 写入文件</span>
+            <span class="token class-name">Writer</span> write <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">OutputStreamWriter</span><span class="token punctuation">(</span><span class="token keyword">new</span> <span class="token class-name">FileOutputStream</span><span class="token punctuation">(</span>file<span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token class-name">StandardCharsets</span><span class="token punctuation">.</span>UTF_8<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            write<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span>content<span class="token punctuation">)</span><span class="token punctuation">;</span>
+            write<span class="token punctuation">.</span><span class="token function">flush</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            write<span class="token punctuation">.</span><span class="token function">close</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span> <span class="token keyword">catch</span> <span class="token punctuation">(</span><span class="token class-name">Exception</span> e<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+            e<span class="token punctuation">.</span><span class="token function">printStackTrace</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+            <span class="token keyword">return</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">}</span>
+
+    <span class="token keyword">public</span> <span class="token keyword">static</span> <span class="token keyword">void</span> <span class="token function">main</span><span class="token punctuation">(</span><span class="token class-name">String</span><span class="token punctuation">[</span><span class="token punctuation">]</span> args<span class="token punctuation">)</span> <span class="token punctuation">{</span>
+
+        <span class="token class-name">String</span> json <span class="token operator">=</span> <span class="token string">&quot;{\n&quot;</span> <span class="token operator">+</span> <span class="token string">&quot;    \&quot;A\&quot;: \&quot;1\&quot;,\n&quot;</span> <span class="token operator">+</span> <span class="token string">&quot;    \&quot;data\&quot;: [\n&quot;</span> <span class="token operator">+</span> <span class="token string">&quot;        {\n&quot;</span> <span class="token operator">+</span> <span class="token string">&quot;            \&quot;A\&quot;: \&quot;1\&quot;,\n&quot;</span> <span class="token operator">+</span> <span class="token string">&quot;            \&quot;data\&quot;: [\n&quot;</span> <span class="token operator">+</span> <span class="token string">&quot;                {\n&quot;</span> <span class="token operator">+</span> <span class="token string">&quot;                    \&quot;A\&quot;: \&quot;1\&quot;,\n&quot;</span> <span class="token operator">+</span> <span class="token string">&quot;                    \&quot;data\&quot;: {\n&quot;</span> <span class="token operator">+</span> <span class="token string">&quot;                        \&quot;A\&quot;: \&quot;1\&quot;\n&quot;</span> <span class="token operator">+</span> <span class="token string">&quot;                    }\n&quot;</span> <span class="token operator">+</span> <span class="token string">&quot;                }\n&quot;</span> <span class="token operator">+</span> <span class="token string">&quot;            ]\n&quot;</span> <span class="token operator">+</span> <span class="token string">&quot;        },\n&quot;</span> <span class="token operator">+</span> <span class="token string">&quot;        {\n&quot;</span> <span class="token operator">+</span> <span class="token string">&quot;            \&quot;A\&quot;: \&quot;1\&quot;,\n&quot;</span> <span class="token operator">+</span> <span class="token string">&quot;            \&quot;data\&quot;: [\n&quot;</span> <span class="token operator">+</span> <span class="token string">&quot;                {\n&quot;</span> <span class="token operator">+</span> <span class="token string">&quot;                    \&quot;A\&quot;: \&quot;1\&quot;,\n&quot;</span> <span class="token operator">+</span> <span class="token string">&quot;                    \&quot;data\&quot;: {\n&quot;</span> <span class="token operator">+</span> <span class="token string">&quot;                        \&quot;A\&quot;: \&quot;1\&quot;\n&quot;</span> <span class="token operator">+</span> <span class="token string">&quot;                    }\n&quot;</span> <span class="token operator">+</span> <span class="token string">&quot;                }\n&quot;</span> <span class="token operator">+</span> <span class="token string">&quot;            ]\n&quot;</span> <span class="token operator">+</span> <span class="token string">&quot;        }\n&quot;</span> <span class="token operator">+</span> <span class="token string">&quot;    ]\n&quot;</span> <span class="token operator">+</span> <span class="token string">&quot;}&quot;</span><span class="token punctuation">;</span>
+
+        <span class="token class-name">JSONObject</span> data <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">JSONObject</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        data<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">&quot;A&quot;</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        data<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">&quot;B&quot;</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        data<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">&quot;C&quot;</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token class-name">JSONObject</span> data1 <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">JSONObject</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        data1<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">&quot;A&quot;</span><span class="token punctuation">,</span> <span class="token number">1</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        data1<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">&quot;B&quot;</span><span class="token punctuation">,</span> <span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        data1<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">&quot;C&quot;</span><span class="token punctuation">,</span> <span class="token number">3</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        data<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">&quot;data1&quot;</span><span class="token punctuation">,</span> data1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+
+        <span class="token class-name">JSONObject</span> obj <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">JSONObject</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        obj<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">&quot;name&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;测试&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        obj<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">&quot;data&quot;</span><span class="token punctuation">,</span> data<span class="token punctuation">)</span><span class="token punctuation">;</span>
+        obj<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">&quot;null&quot;</span><span class="token punctuation">,</span> <span class="token keyword">null</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        obj<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">&quot;ArrayList&quot;</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">ArrayList</span><span class="token generics"><span class="token punctuation">&lt;</span><span class="token punctuation">&gt;</span></span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        obj<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">&quot;date&quot;</span><span class="token punctuation">,</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+        obj<span class="token punctuation">.</span><span class="token function">put</span><span class="token punctuation">(</span><span class="token string">&quot;data1&quot;</span><span class="token punctuation">,</span> data1<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+        <span class="token function">createJsonFile</span><span class="token punctuation">(</span>obj<span class="token punctuation">,</span> <span class="token string">&quot;D:\\development\\project\\demo\\temp&quot;</span> <span class="token operator">+</span> <span class="token string">&quot;A.json&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+    <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</code></pre> <div class="line-numbers-wrapper"><span class="line-number">1</span><br><span class="line-number">2</span><br><span class="line-number">3</span><br><span class="line-number">4</span><br><span class="line-number">5</span><br><span class="line-number">6</span><br><span class="line-number">7</span><br><span class="line-number">8</span><br><span class="line-number">9</span><br><span class="line-number">10</span><br><span class="line-number">11</span><br><span class="line-number">12</span><br><span class="line-number">13</span><br><span class="line-number">14</span><br><span class="line-number">15</span><br><span class="line-number">16</span><br><span class="line-number">17</span><br><span class="line-number">18</span><br><span class="line-number">19</span><br><span class="line-number">20</span><br><span class="line-number">21</span><br><span class="line-number">22</span><br><span class="line-number">23</span><br><span class="line-number">24</span><br><span class="line-number">25</span><br><span class="line-number">26</span><br><span class="line-number">27</span><br><span class="line-number">28</span><br><span class="line-number">29</span><br><span class="line-number">30</span><br><span class="line-number">31</span><br><span class="line-number">32</span><br><span class="line-number">33</span><br><span class="line-number">34</span><br><span class="line-number">35</span><br><span class="line-number">36</span><br><span class="line-number">37</span><br><span class="line-number">38</span><br><span class="line-number">39</span><br><span class="line-number">40</span><br><span class="line-number">41</span><br><span class="line-number">42</span><br><span class="line-number">43</span><br><span class="line-number">44</span><br><span class="line-number">45</span><br><span class="line-number">46</span><br><span class="line-number">47</span><br><span class="line-number">48</span><br><span class="line-number">49</span><br><span class="line-number">50</span><br><span class="line-number">51</span><br><span class="line-number">52</span><br><span class="line-number">53</span><br><span class="line-number">54</span><br><span class="line-number">55</span><br><span class="line-number">56</span><br><span class="line-number">57</span><br><span class="line-number">58</span><br><span class="line-number">59</span><br><span class="line-number">60</span><br><span class="line-number">61</span><br><span class="line-number">62</span><br><span class="line-number">63</span><br><span class="line-number">64</span><br><span class="line-number">65</span><br><span class="line-number">66</span><br><span class="line-number">67</span><br><span class="line-number">68</span><br><span class="line-number">69</span><br><span class="line-number">70</span><br><span class="line-number">71</span><br><span class="line-number">72</span><br><span class="line-number">73</span><br><span class="line-number">74</span><br><span class="line-number">75</span><br><span class="line-number">76</span><br><span class="line-number">77</span><br><span class="line-number">78</span><br><span class="line-number">79</span><br><span class="line-number">80</span><br><span class="line-number">81</span><br><span class="line-number">82</span><br><span class="line-number">83</span><br><span class="line-number">84</span><br><span class="line-number">85</span><br><span class="line-number">86</span><br><span class="line-number">87</span><br><span class="line-number">88</span><br><span class="line-number">89</span><br><span class="line-number">90</span><br><span class="line-number">91</span><br><span class="line-number">92</span><br></div></div></div> <footer class="page-edit" style="display:none;"><!----> <div class="last-updated"><span class="prefix">Last Updated: </span> <span class="time">2/26/2023, 12:19:41 AM</span></div></footer> <!----> <!----> <!----></main> <!----></div></div></div></div><div class="global-ui"><div class="back-to-ceiling" style="right:1rem;bottom:6rem;width:2.5rem;height:2.5rem;border-radius:.25rem;line-height:2.5rem;display:none;" data-v-c6073ba8 data-v-c6073ba8><svg t="1574745035067" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5404" class="icon" data-v-c6073ba8><path d="M526.60727968 10.90185116a27.675 27.675 0 0 0-29.21455937 0c-131.36607665 82.28402758-218.69155461 228.01873535-218.69155402 394.07834331a462.20625001 462.20625001 0 0 0 5.36959153 69.94390903c1.00431239 6.55289093-0.34802892 13.13561351-3.76865779 18.80351572-32.63518765 54.11355614-51.75690182 118.55860487-51.7569018 187.94566865a371.06718723 371.06718723 0 0 0 11.50484808 91.98906777c6.53300375 25.50556257 41.68394495 28.14064038 52.69160883 4.22606766 17.37162448-37.73630017 42.14135425-72.50938081 72.80769204-103.21549295 2.18761121 3.04276886 4.15646224 6.24463696 6.40373557 9.22774369a1871.4375 1871.4375 0 0 0 140.04691725 5.34970492 1866.36093723 1866.36093723 0 0 0 140.04691723-5.34970492c2.24727335-2.98310674 4.21612437-6.18497483 6.3937923-9.2178004 30.66633723 30.70611158 55.4360664 65.4791928 72.80769147 103.21549355 11.00766384 23.91457269 46.15860503 21.27949489 52.69160879-4.22606768a371.15156223 371.15156223 0 0 0 11.514792-91.99901164c0-69.36717486-19.13165746-133.82216804-51.75690182-187.92578088-3.42062944-5.66790279-4.76302748-12.26056868-3.76865837-18.80351632a462.20625001 462.20625001 0 0 0 5.36959269-69.943909c-0.00994388-166.08943902-87.32547796-311.81420293-218.6915546-394.09823051zM605.93803103 357.87693858a93.93749974 93.93749974 0 1 1-187.89594924 6.1e-7 93.93749974 93.93749974 0 0 1 187.89594924-6.1e-7z" p-id="5405" data-v-c6073ba8></path><path d="M429.50777625 765.63860547C429.50777625 803.39355007 466.44236686 1000.39046097 512.00932183 1000.39046097c45.56695499 0 82.4922232-197.00623328 82.5015456-234.7518555 0-37.75494459-36.9345906-68.35043303-82.4922232-68.34111062-45.57627738-0.00932239-82.52019037 30.59548842-82.51086798 68.34111062z" p-id="5406" data-v-c6073ba8></path></svg></div></div></div>
+    <script src="/MyBlog/assets/js/app.da910036.js" defer></script><script src="/MyBlog/assets/js/3.3f64e099.js" defer></script><script src="/MyBlog/assets/js/1.1ebc573b.js" defer></script><script src="/MyBlog/assets/js/66.b76572e3.js" defer></script>
+  </body>
+</html>
